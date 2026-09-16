@@ -40,7 +40,7 @@ public class runnable {
             System.out.println(S + "," + sorter.comparisons);
         }
 
-        System.out.println("\nCPU Time & Comparisons against Original Merge Sort");
+        System.out.println("\nCPU Time & Comparison against Original Merge Sort");
         int tenMillion = 10000000;
         int[] massiveArray = generateData(tenMillion, maxRandomValue_X);
         int[] massiveArrayCopy = Arrays.copyOf(massiveArray, massiveArray.length);
