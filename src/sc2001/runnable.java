@@ -28,12 +28,11 @@ public class runnable {
             System.out.println((rangelist[i] + "," + sorter.comparisons));
         }
 
-        System.out.println("\n--- Part C(ii): Fixed n, Varying S ---");
+        System.out.println("\nFixed n, Varying S");
         int fixedN = 100000;
         int[] originalData = generateData(fixedN, maxRandomValue_X);
         System.out.println("S,KeyComparisons");
 
-        // Loop through S to find optimal threshold for best performance
         for (int S = 2; S <= 100; S += 2) {
             int[] arrayCopy = Arrays.copyOf(originalData, originalData.length);
             sorter.resetComparisons();
@@ -41,15 +40,15 @@ public class runnable {
             System.out.println(S + "," + sorter.comparisons);
         }
 
-        System.out.println("\n--- Part D: CPU Time & Comparisons against Original Merge Sort ---");
+        System.out.println("\nCPU Time & Comparisons against Original Merge Sort");
         int tenMillion = 10000000;
         int[] massiveArray = generateData(tenMillion, maxRandomValue_X);
         int[] massiveArrayCopy = Arrays.copyOf(massiveArray, massiveArray.length);
 
-        // Assuming optimal S found in (c) was 24
+
         int optimalS = 24;
 
-        // 1. Benchmark Original Merge Sort
+
         sorter.resetComparisons();
         long startTime = System.nanoTime();
         sorter.MergeSort(massiveArray, 0, massiveArray.length - 1);
@@ -57,7 +56,7 @@ public class runnable {
         System.out.println("Original Merge Sort - Comparisons: " + sorter.comparisons +
                 " | CPU Time (ms): " + (endTime - startTime) / 1000000);
 
-        // 2. Benchmark Hybrid Sort
+
         sorter.resetComparisons();
         startTime = System.nanoTime();
         sorter.HybridSort(massiveArrayCopy, 0, massiveArrayCopy.length - 1, optimalS);
@@ -66,7 +65,7 @@ public class runnable {
                 " | CPU Time (ms): " + (endTime - startTime) / 1000000);
 
 
-        System.out.println("\n--- Part D: CPU Time Benchmark for Specific Thresholds ---");
+        System.out.println("\nPart D: CPU Time Benchmark for Specific Thresholds");
 
 // Generate one master array so every threshold sorts the exact same numbers
         int massiveSize = 10000000;
